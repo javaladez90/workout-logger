@@ -16,8 +16,8 @@ function App() {
         <Route path="/log-workout" element={<WorkoutLogger />} />
         <Route path='/track-progress' element={<ProgressTracker />} />
         <Route path='/bmi-calculator' element={<BMICalculator />} />
-        <Route path='register' element={<Register />} />
-        <Route path='/login' element={<Login />} />
+        <Route path='/auth/register' element={<Register />} />
+        <Route path='/auth/login' element={<Login />} />
       </Routes>
     </Router>
   )
