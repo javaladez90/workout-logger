@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import './WorkoutLogger.css';
+import { Link } from 'react-router-dom';
 
 function WorkoutLogger() {
     //State to hold the form input values
@@ -33,9 +35,12 @@ function WorkoutLogger() {
     };
 
     return (
-        <div>
+        
+        <div className='workout-logger'>
+            <Link to='/'>Return to Home</Link>
             <h2>Log Workout</h2>
             <form onSubmit={handleSubmit}>
+                <label htmlFor='workout-name'>Workout Name:</label>
                 <input
                     type='text'
                     placeholder='Workout Name'
@@ -43,6 +48,7 @@ function WorkoutLogger() {
                     value={workout.name}
                     onChange={handleInputChange}
                 />
+                <label htmlFor='workout-sets'>Sets:</label>
                 <input 
                     type='number'
                     placeholder='Sets'
@@ -50,6 +56,7 @@ function WorkoutLogger() {
                     value={workout.sets}
                     onChange={handleInputChange}
                 />
+                <label htmlFor='workout-reps'>Reps:</label>
                 <input 
                     type='number'
                     placeholder='Reps'
@@ -57,6 +64,7 @@ function WorkoutLogger() {
                     value={workout.reps}
                     onChange={handleInputChange}
                 />
+                <label htmlFor='workout-weight'>Weight (kg/lbs):</label>
                 <input 
                     type='number'
                     placeholder='Weight'

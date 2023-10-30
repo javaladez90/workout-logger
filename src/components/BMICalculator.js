@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './BMICalculator.css';
+import { Link } from 'react-router-dom';
 
 function BMICalculator() {
     const [weight, setWeight] = useState('');
@@ -10,6 +11,7 @@ function BMICalculator() {
     const [gender, setGender] = useState('male');
     const [bmi, setBMI] = useState(null);
     const [unit, setUnit] = useState('metric'); // 'metric' or 'imperial'
+    
 
     const handleWeightChange = (e) => {
         setWeight(e.target.value);
@@ -65,7 +67,32 @@ function BMICalculator() {
 
     return (
         <div className='bmi-calculator'>
+            <Link to='/'>Return To HomePage</Link>
             <h1>BMI Calculator</h1>
+            <div>
+                <label>Choose units:</label>
+                <div>
+                    <label>
+                        <input
+                            type='radio'
+                            name='unit'
+                            value='metric'
+                            checked={unit === 'metric'}
+                            onChange={handleUnitChange}
+                        />
+                        Metric
+                    </label>
+                    <label>
+                        <input
+                            type='radio'
+                            name='unit'
+                            value='imperial'
+                            checked={unit === 'imperial'}
+                            onChange={handleUnitChange}
+                        />
+                        Imperial
+                        </label>
+                </div><br></br>
             <div>
                 <label htmlFor='weight'>Weight:</label>
                 <input
@@ -115,30 +142,7 @@ function BMICalculator() {
                     <option value='female'>Female</option>
                 </select>
             </div>
-            <div>
-                <label>Choose units:</label>
-                <div>
-                    <label>
-                        <input
-                            type='radio'
-                            name='unit'
-                            value='metric'
-                            checked={unit === 'metric'}
-                            onChange={handleUnitChange}
-                        />
-                        Metric
-                    </label>
-                    <label>
-                        <input
-                            type='radio'
-                            name='unit'
-                            value='imperial'
-                            checked={unit === 'imperial'}
-                            onChange={handleUnitChange}
-                        />
-                        Imperial
-                        </label>
-                </div>
+           
             </div>
             <button onClick={calculateBMI}>Calculate BMI</button>
             {bmi && (
