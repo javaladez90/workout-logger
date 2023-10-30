@@ -19,6 +19,9 @@ function HomePage() {
                 <Link to='/track-progress' className='btn'>
                     Track Progress
                 </Link>
+                <Link to='bmi-calculator' className='btn'>
+                    Check Your BMI
+                </Link>
             </div>
 
             {/* OPTIONAL: Add som visual elements or images */}
