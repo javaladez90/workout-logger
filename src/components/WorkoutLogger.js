@@ -8,7 +8,8 @@ function WorkoutLogger() {
         name: '',
         sets: 0,
         reps: 0,
-        weight: 0
+        weight: 0,
+        weightUnit: 'lbs'
     });
 
 
@@ -40,6 +41,17 @@ function WorkoutLogger() {
             <Link to='/'>Return to Home</Link>
             <h2>Log Workout</h2>
             <form onSubmit={handleSubmit}>
+                <label>
+                    Weight Unit:
+                    <select 
+                        name='weightUnit'
+                        value={workout.weightUnit}
+                        onChange={handleInputChange}
+                    >
+                        <option value='kg'>Kilograms (kg)</option>
+                        <option value='lbs'>Pounds (lbs)</option>
+                    </select>
+                </label>
                 <label htmlFor='workout-name'>Workout Name:</label>
                 <input
                     type='text'
@@ -79,7 +91,7 @@ function WorkoutLogger() {
                 <ul>
                     {workoutLog.map((w, index) => (
                         <li key={index}>
-                            {w.name} - {w.sets} sets if {w.reps} reps at {w.weight} kg/lbs
+                            {w.name} - {w.sets} sets if {w.reps} reps at {w.weight} {w.weightUnit}
                         </li>
                     ))}
                 </ul>
